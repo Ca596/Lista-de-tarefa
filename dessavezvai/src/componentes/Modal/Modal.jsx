@@ -9,6 +9,7 @@ const Modal = ({
   operation,
   item,
   itemIndex,
+  itemprioridade,
 }) => {
   const [newTitle, setNewTitle] = useState(undefined);
 

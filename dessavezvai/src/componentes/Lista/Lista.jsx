@@ -12,6 +12,7 @@ const Lista = ({ data }) => {
   const storedToDoList = JSON.parse(localStorage.getItem("storedToDoList"));
 
   const [tarefas, setTarefas] = useState(storedToDoList || data);
+  
 
   useEffect(() => {
     localStorage.setItem("storedToDoList", JSON.stringify(tarefas));
@@ -31,19 +32,21 @@ const Lista = ({ data }) => {
   const [itemCalled, setItemCalled] = useState(undefined);
   const [cardOperation, setCardOperation] = useState(undefined);
   const [idCalled, setIdCalled] = useState(undefined);
+  const [priority, setPriority] = useState(undefined);
 
-  const callCard = (value, edit, item, itemIndex) => {
+  function callCard(value, edit, item, itemIndex,priority) {
     setItemCalled(item);
     setCard(value);
     setCardOperation(edit);
     setIdCalled(itemIndex);
+    setPriority(priority);
   };
 
-  const handleDelete = (index) => {
+  function handleDelete(index) {
     tarefas.splice(index, 1);
 
     setTarefas([...tarefas]);
-  };
+  }
 
   const handleEdit = (index, newTitle) => {
     tarefas[index].title = newTitle;
@@ -57,6 +60,7 @@ const Lista = ({ data }) => {
         <thead>
           <tr>
             <th className={styles.tarefasTop}>Tarefa</th>
+            <th className={styles.tarefasTop}>prioridade</th>
             <th className={styles.tarefasTop}>Categoria</th>
             <th className={styles.statusTop}>Status</th>
             <th className={styles.optionsTop}>Opções</th>
@@ -67,6 +71,7 @@ const Lista = ({ data }) => {
             return (
               <tr key={item.id + index}>
                 <td className={styles.tarefas}>{item.title}</td>
+                <td className={styles.priority}>{item.priority}</td>
                 <td className={styles.categoria}>{item.category}</td>
                 <td className={styles.status}>
                   <label
@@ -74,7 +79,7 @@ const Lista = ({ data }) => {
                       handleStatus(event.target.checked, index);
                     }}
                   >
-                    {item.completed ? (
+                    {item.completed ? (                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
                       <input
                         type="checkbox"
                         name={item.title}
@@ -127,6 +132,7 @@ const Lista = ({ data }) => {
         operation={cardOperation}
         item={itemCalled}
         itemIndex={idCalled}
+        itemprioridade={priority}
       />
     </div>
   );

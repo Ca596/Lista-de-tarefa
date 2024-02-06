@@ -14,21 +14,22 @@ table {
 
     tr {
         display: grid;
-        grid-template-columns: 30% 30% 30% auto;
+        grid-template-columns: 30% 30% 30% 30% auto;
     }
 
     th,
     td {
         padding: 0 10px 0 10px;
     }
-
+  
     th {
         color: $white;
         border-bottom: 5px solid #d9d9d9;
         border-collapse: collapse;
         padding-bottom: 40px;
         margin-bottom: 18px;
-    }
+        display: inline-block;
+        }
 
     td {
         margin-top: 15px;
@@ -36,7 +37,7 @@ table {
     }
 
     .tarefasTop {
-        display: inline-block;
+  
         text-align: left;
         font-size: 30px;
         font-family: Raleway;
@@ -44,7 +45,7 @@ table {
     }
 
     .statusTop {
-        display: inline-block;
+        
         text-align: center;
         font-size: 30px;
         font-family: Raleway;
@@ -52,7 +53,7 @@ table {
     }
 
     .optionsTop {
-        display: inline-block;
+        
         text-align: right;
         font-size: 30px;
         font-family: Raleway;
@@ -99,7 +100,12 @@ table {
         justify-content: flex-end;
         gap: 1.5rem;
     }
-
+    .priority{
+        background-color: rgb(53, 53, 53);
+        font-size: 20px;
+        margin-right: 20px;
+    }
+    
     svg:hover {
         
         cursor: pointer;

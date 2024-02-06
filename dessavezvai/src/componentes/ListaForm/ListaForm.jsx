@@ -6,12 +6,14 @@ import { AiOutlinePlusSquare } from "react-icons/ai";
 const ListaForm = ({ formHandler, listLength }) => {
   const [tarefa, setTarefa] = useState(null);
   const [category, setCategory] = useState("");
+  const [priority, setPriority] = useState("");
 
   const elementCreate = (value) => {
     const novaTarefa = {
       id: listLength + 1,
       title: value,
       category: category,
+      priority: priority,
       completed: false,
     };
 
@@ -47,6 +49,16 @@ const ListaForm = ({ formHandler, listLength }) => {
           <option value="Tarefa doméstica">Tarefa doméstica</option>
           <option value="Trabalho">Trabalho</option>
           <option value="Estudos">Estudos</option>
+        </select>
+        <select
+          className={styles.select}
+          onChange={(event) => setPriority(event.target.value)}
+          value={priority}
+        >
+          <option value="">Selecione uma prioridade</option>
+          <option value="Baixa">Baixa</option>
+          <option value="Média">Média</option>
+          <option value="Alta">Alta</option>
         </select>
 
         <button>
